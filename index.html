@@ -10,7 +10,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-  <a class="navbar-brand" href="#">MyGGJ</a>
+  <a class="navbar-brand" href="index.html">MyGGJ</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,11 +29,14 @@
       <li class="nav-item">
         <a class="nav-link" href="" data-toggle="modal" data-target="#aboutWebsiteModal">关于本站</a>
       </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="weather.html">MyGGJ天气</a>
+		
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
-    </form>
+    <div class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="快速搜索" aria-label="Search" id="search">
+    </div>
   </div>
     </div>
 </nav>
@@ -82,39 +85,39 @@
 
 <div class="container">
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">
-  <h4>1、怎么配置wifi/蓝牙？</h4>
+  <li class="list-group-item listContent">
+  <h4>1、怎么配置wifi/蓝牙？<span class="badge badge-pill badge-danger">热</span></h4>
   <p class="mt-4">说明书上已描述清楚，这里不再赘述</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>2、校园wifi（CMCC、ChinaNet等）可以连接咕咕机吗？</h4>
   <p class="mt-4">不可以，需要认证的无线网和5G频率都不可以</p>
   </li>
-  <li class="list-group-item">
-  <h4>3、为什么打印不正常断断续续的？</h4>
+  <li class="list-group-item listContent">
+  <h4>3、为什么打印不正常断断续续的？<span class="badge badge-pill badge-danger">热</span></h4>
   <p class="mt-4">请使用官方充电器或5V2A充电器供电哦，避免因电流不足引起的打印问题</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>4、打印内容多长时间会消失？</h4>
   <p class="mt-4">与保存环境与纸质有关，切记不要用透明胶带粘黏打印部分，会消失更快</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>5、如何解除手机与咕咕机的绑定？</h4>
   <p class="mt-4">“我的”—“我的咕咕机”—“咕咕机”—“解除账号绑定”—“确定”</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>6、如何去掉纸条上下的时间和logo？</h4>
   <p class="mt-4">“我的”—“设置”—“自定义纸条”</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>7、我可以去哪里找打印素材呢？</h4>
   <p class="mt-4">“发现”——“咕咕圈”</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>8、我想让别人也用这个咕咕机该怎么操作？</h4>
   <p class="mt-4">“发现”—“分享咕咕机”—“分享”</p>
   </li>
-  <li class="list-group-item">
+  <li class="list-group-item listContent">
   <h4>未完待更</h4>
   <p class="mt-4">劳资累了</p>
   </li>
@@ -152,5 +155,31 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
 	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+	jQuery.expr[':'].Contains = function(a, i, m) {    
+  return jQuery(a).text().toUpperCase()    
+      .indexOf(m[3].toUpperCase()) >= 0;    
+};    
+  
+// OVERWRITES old selecor    
+jQuery.expr[':'].contains = function(a, i, m) {    
+  return jQuery(a).text().toUpperCase()    
+      .indexOf(m[3].toUpperCase()) >= 0;    
+}; 
+
+    $(document).ready(function () {
+        $("#search").keyup(function () {
+            $(".listContent").css("display", "inline");
+            var key = $("#search").val();
+            if (key === null || key === "") {
+                console.log("By Pylory");
+            } else {
+                $(".listContent").css("display", "none");
+                $(".listContent:contains(" + key + ")").css("display", "inline");
+            }
+            
+        });
+    });
+</script>
   </body>
 </html>
