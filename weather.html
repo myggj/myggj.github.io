@@ -30,8 +30,8 @@
 							<th>当前温度</th>
 							<th>最高气温</th>
 							<th>最低气温</th>
-							<th>风向</th>
-							<th>风力</th>
+<!-- 							<th>风向</th>
+							<th>风力</th> -->
 						</tr>
 					</thead>
 					<tbody>
@@ -98,9 +98,9 @@
 								resp.data[i].wea + "</td><td>" +
 								resp.data[i].tem + "</td><td>" +
 								resp.data[i].tem1 + "</td><td>" +
-								resp.data[i].tem2 + "</td><td>" +
-								resp.data[i].win[0] + "</td><td>" +
-								resp.data[i].win_speed + "</td>" +
+								resp.data[i].tem2 + "</td>" +
+								// resp.data[i].win[0] + "</td><td>" +
+								// resp.data[i].win_speed + "</td>" +
 								"</tr>";
 							$("#detail tbody").append(forword_day);
 						}
