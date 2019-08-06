@@ -1,13 +1,112 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
-    <meta charset="UTF-8">
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS -->
-	<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
-    <title>MyGGJ - 天气</title>
-  </head>
-<body>
-<h1>MyGGJ天气</h1>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+		<title>MyGGJ天气</title>
+	</head>
+	<body>
+		<div class="container">
+			<div id="app">
+				<h2>最新天气实况</h2>
+				<p>城市：<span></span>
+					<a href="" data-toggle="modal" data-target="#notCity">(不是当前城市？)</a>
+				</p>
+				<p>日期：<span></span></p>
+				<p>天气：<span></span></p>
+				<p>当前气温：<span></span></p>
+				<p>风向：<span></span></p>
+				<p>最高气温：<span></span></p>
+				<p>最低气温：<span></span></p>
+				<p>温馨提醒：<span></span></p>
+				<h2>未来7天天气预报</h2>
+				<table class="table table-striped" id="detail" style="text-align: center">
+					<thead class="thead-light">
+						<tr>
+							<th>日期</th>
+							<th>天气</th>
+							<th>当前温度</th>
+							<th>最高气温</th>
+							<th>最低气温</th>
+							<th>风向</th>
+							<th>风力</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="notCity" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">不是当前城市？</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						就这样吧，反正我也不想再改了。
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$.ajax({
+					url: 'https://www.tianqiapi.com/api/?version=v1',
+					type: 'get',
+					data: {},
+					dataType: 'json',
+					error: function(resp, status) {
+						console.log('请求失败：', status, resp);
+					},
+					success: function(resp, status) {
+						console.log('请求成功：', status, resp);
+						var wCity = resp.city;
+						var wDate = resp.data[0].date;
+						var wWea = resp.data[0].wea;
+						var wTem = resp.data[0].tem;
+						var wWin = resp.data[0].win[0];
+						var wTemMax = resp.data[0].tem1;
+						var wTemMin = resp.data[0].tem2;
+						var wAirTips = resp.data[0].air_tips;
+						$('#app p:nth-child(2) span').html(wCity);
+						$('#app p:nth-child(3) span').html(wDate);
+						$('#app p:nth-child(4) span').html(wWea);
+						$('#app p:nth-child(5) span').html(wTem);
+						$('#app p:nth-child(6) span').html(wWin);
+						$('#app p:nth-child(7) span').html(wTemMax);
+						$('#app p:nth-child(8) span').html(wTemMin);
+						$('#app p:nth-child(9) span').html(wAirTips);
+						$("#detail tbody").empty();
+						for (var i = 0; i < 7; i++) {
+							var forword_day = "<tr><td>" +
+								resp.data[i].day + "</td><td>" +
+								resp.data[i].wea + "</td><td>" +
+								resp.data[i].tem + "</td><td>" +
+								resp.data[i].tem1 + "</td><td>" +
+								resp.data[i].tem2 + "</td><td>" +
+								resp.data[i].win[0] + "</td><td>" +
+								resp.data[i].win_speed + "</td>" +
+								"</tr>";
+							$("#detail tbody").append(forword_day);
+						}
+					}
+				})
+			})
+		</script>
+	</body>
 </html>
