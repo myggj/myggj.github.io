@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+		<title>编辑</title>
+		<style>
+			.modal-backdrop {
+				background-image: url('https://static.event.mihoyo.com/bh3_homepage/images/index/section_1_bg_1.jpg');
+			}
+
+			 .modal-backdrop.show {
+			     opacity: 1;
+			 }
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<ul class="list-group list-group-flush" id="myEditProblem">
+				<!-- <li></li> -->
+			</ul>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<div class="input-group mb-3">
+						<input type="number" class="form-control col-sm-1" id="myNewId">
+						<input type="text" class="form-control col-sm-10" id="myNewQuestion">
+						<div class="input-group-append">
+							<span class="input-group-text">
+								<input type="checkbox" class="form-check-input ml-1" id="isHotCheckBox">
+								<label class="form-check-label col-sm-1 ml-4" for="isHot">热门</label>
+							</span>
+						</div>
+					</div>
+					<div class="input-group mb-3">
+						<textarea class="form-control" id="myNewAnswer"></textarea>
+					</div>
+					<button type="button" class="btn btn-primary" onclick="editNewProblem()">保存</button>
+					<a href="index.html">
+						<button type="button" class="btn btn-secondary">回到首页</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="modal" id="loginModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="loginModal">登录</h5>
+					</div>
+					<div class="modal-body">
+						<form method="post">
+							<div class="form-group">
+								<label for="myUserName">用户名</label>
+								<input type="text" class="form-control" id="myUserName">
+							</div>
+							<div class="form-group">
+								<label for="myPassword">密码</label>
+								<input type="password" class="form-control" id="myPassword">
+							</div>
+					</div>
+					<div class="modal-footer">
+						<a href="index.html">
+							<button type="button" class="btn btn-secondary">回到首页</button>
+						</a>
+						<button type="button" class="btn btn-primary" id="mySubmit" onclick="loginCheck()">登录</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bmob/Bmob-2.1.0.min.js"></script>
+		<script src="https://cdn.bootcss.com/blueimp-md5/2.11.1/js/md5.min.js"></script>
+		<script type="text/javascript" src="js/myggj.js"></script>
+		<script>
+			$('#loginModal').modal();
+			editAllProblem();
+		</script>
+	</body>
+</html>
