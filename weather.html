@@ -22,9 +22,21 @@
 				<p>最低气温：<span></span></p>
 				<p>温馨提醒：<span></span></p>
 				<h2>未来7天天气预报</h2>
-				<div class="accordion" id="wAccordionDetail">
-					
-				</div>
+				<table class="table table-striped" id="detail" style="text-align: center">
+					<thead class="thead-light">
+						<tr>
+							<th>日期</th>
+							<th>天气</th>
+							<th>当前温度</th>
+							<th>最高气温</th>
+							<th>最低气温</th>
+<!-- 							<th>风向</th>
+							<th>风力</th> -->
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
 			</div>
 		</div>
 
@@ -54,7 +66,7 @@
 		<script>
 			$(document).ready(function() {
 				$.ajax({
-					url: 'https://www.tianqiapi.com/api/?version=v1&appid=1001&appsecret=5566',
+					url: 'https://www.tianqiapi.com/api/?version=v1',
 					type: 'get',
 					data: {},
 					dataType: 'json',
@@ -81,21 +93,16 @@
 						$('#app p:nth-child(9) span').html(wAirTips);
 						$("#detail tbody").empty();
 						for (var i = 0; i < 7; i++) {
-							var forword_day = "<div class='card'>" +
-								"<div class='card-header' id='wDay" + parseInt(i + 1) + "'>" +
-								"<h2 class='mb-0'>" +
-								"<button class='btn btn-light' type='button' data-toggle='collapse' data-target='#wCollapse" + parseInt(i +
-									1) +
-								"' aria-expanded='false' aria-controls='wCollapse" + parseInt(i + 1) + "'>" +
-								resp.data[i].day + resp.data[i].wea + resp.data[i].tem +"，最高气温："+resp.data[i].tem1+"，最低气温："+resp.data[i].tem2+
-								"</button></h2></div>" +
-								"<div id='wCollapse" + parseInt(i + 1) + "' class='collapse' aria-labelledby='wDay" + parseInt(i + 1) +
-								"' data-parent='#wAccordionDetail'>" +
-								"<div class='card-body'>" +
-								resp.data[i].win[0]+resp.data[i].win_speed+"<br>"+
-								resp.data[i].index[0].title+"："+resp.data[i].index[0].level
-								"</div></div></div></div>";
-							$("#wAccordionDetail").append(forword_day);
+							var forword_day = "<tr><td>" +
+								resp.data[i].day + "</td><td>" +
+								resp.data[i].wea + "</td><td>" +
+								resp.data[i].tem + "</td><td>" +
+								resp.data[i].tem1 + "</td><td>" +
+								resp.data[i].tem2 + "</td>" +
+								// resp.data[i].win[0] + "</td><td>" +
+								// resp.data[i].win_speed + "</td>" +
+								"</tr>";
+							$("#detail tbody").append(forword_day);
 						}
 					}
 				})
