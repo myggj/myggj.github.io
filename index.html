@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh" style="overflow-y: scroll">
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
-		<title>MyGGJ - 卧槽，我的咕咕机肿么了</title>
+		<title>MyGGJ - 卧槽，我的咕咕机肿么了 - Vue重构版</title>
 		<style>
-			body {
+			body{
 				background-image: url(img/myggj/bg.png);
+			}
+			.footer {
+				font-size: 14px;
+				color: #999;
+				width: 100%;
+				text-align: center;
 			}
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<!-- 导航栏 -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="ggjNavbar">
 			<div class="container">
 				<a class="navbar-brand" href="index.html">MyGGJ</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item">
@@ -33,79 +39,23 @@
 							<a class="nav-link" href="https://www.memobird.shop/">咕咕机官网</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="" data-toggle="modal" data-target="#aboutWebsiteModal">关于本站</a>
+							<a class="nav-link" href="#">咕咕机APP下载</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="myHtmlProjectDropdown" role="button" data-toggle="dropdown"
-							 aria-haspopup="true" aria-expanded="false">
-								练手项目
-							</a>
-							<div class="dropdown-menu" aria-labelledby="myHtmlProjectDropdown">
-								<a class="dropdown-item" href="weather.html">MyGGJ天气</a>
-								<a class="dropdown-item" href="vweather.html">MyGGJ天气vue版</a>
+							<a class="nav-link dropdown-toggle" id="myProjectDropdown" href="#" role="button" data-toggle="dropdown"
+							 aria-haspopup="true" aria-expanded="false">练手项目</a>
+							<div class="dropdown-menu" aria-labelledby="myProjectDropdown">
+								<a class="dropdown-item" :href="myDropdownItem.url" v-for="myDropdownItem in myDropdownItems">{{myDropdownItem.name}}</a>
 							</div>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="" data-toggle="modal" data-target="#aboutWebsiteModal">关于本站</a>
+						</li>
 					</ul>
-					<div class="form-inline my-2 my-lg-0">
-						<input class="form-control mr-sm-2" type="text" placeholder="快速搜索" aria-label="Search" id="search">
-					</div>
 				</div>
 			</div>
 		</nav>
-
-
-		<div class="container">
-			<div id="ggjCarouselIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#ggjCarouselIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#ggjCarouselIndicators" data-slide-to="1"></li>
-					<li data-target="#ggjCarouselIndicators" data-slide-to="2"></li>
-					<li data-target="#ggjCarouselIndicators" data-slide-to="3"></li>
-					<li data-target="#ggjCarouselIndicators" data-slide-to="4"></li>
-					<li data-target="#ggjCarouselIndicators" data-slide-to="5"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_816f53e5025f41dc9dda30e8f8f6f9b7~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_816f53e5025f41dc9dda30e8f8f6f9b7~mv2.webp">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_fac02118cbd34e3da98767fd708ee188~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_fac02118cbd34e3da98767fd708ee188~mv2.webp">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_2617cbf3c1c24db2b703416b3a7695cb~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_2617cbf3c1c24db2b703416b3a7695cb~mv2.webp">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_78bec47450ce48cbad4b24ec0daecd03~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_78bec47450ce48cbad4b24ec0daecd03~mv2.webp">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_c908798d05844da39419a037a978a8cf~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_c908798d05844da39419a037a978a8cf~mv2.webp">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_b56019373d5446829676054cebee7b78~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_b56019373d5446829676054cebee7b78~mv2.webp">
-					</div>
-				</div>
-				<a class="carousel-control-prev" href="#ggjCarouselIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#ggjCarouselIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
-		</div>
-
-		<div class="container">
-			<ul class="list-group list-group-flush" id="myProblem">
-				<!-- <li></li> -->
-			</ul>
-		</div>
-
-
-
-
-
-
+		<!-- 关于本站模态框 -->
 		<div class="modal fade" id="aboutWebsiteModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -119,7 +69,7 @@
 						<p>本站仅为个人性质的咕咕机使用问题及解决方案收录站点。</p>
 						<p>解决方案仅为个人见解，仅供参考，不代表官方。</p>
 						<p>本站对操作过程中出现的任何损坏不承担责任。</p>
-						<p>若有疑问，请加群联系。</p>
+						<p>若有疑问，请加群或在下方提出。</p>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
@@ -127,38 +77,113 @@
 				</div>
 			</div>
 		</div>
-		</header>
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<div class="container">
+			<!-- 图片轮播 -->
+			<div id="ggjCarouselIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#ggjCarouselIndicators" :data-slide-to="myPicCarousel.pcid-1" :class="{active: myPicCarousel.pcid == 1}"
+					 v-for="myPicCarousel in myPicCarousels"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item" :class="{active: myPicCarousel.pcid == 1}" v-for="myPicCarousel in myPicCarousels">
+						<img class="d-block w-100" :src="myPicCarousel.picurl">
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#ggjCarouselIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#ggjCarouselIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+			<!-- 问题列表 -->
+			<div id="ggjDetail">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item listContent" style="background-color:rgba(255,255,255,0);">
+						<h1 class="text-center p-md-4">常见问题</h1>
+					</li>
+					<li class="list-group-item listContent" style="background-color:rgba(255,255,255,0);" v-for="myProblem in myProblems">
+						<h4 class="mt-3">{{myProblem.pid}}、{{myProblem.question}}<span class="badge badge-pill badge-danger" v-if="myProblem.is_hot == 1">热</span></h4>
+						<p class="mt-3">{{myProblem.answer}}</p>
+					</li>
+				</ul>
+			</div>
+			<!-- 疑问列表 -->
+			<h1 class="text-center p-md-4">我有疑问</h1>
+			<div class="input-group">
+				<input type="text" class="form-control">
+			</div>
+			<button type="button" class="btn btn-primary mt-3 mb-3">提交</button>
+		</div>
+		<!-- 页脚 -->
+		<footer class="footer navbar-fixed-bottom">
+			<div class="dropdown-divider"></div>
+			<span id="time" class="p-3">©2019 By Pylory 当前时间{{Now.datetime.substring(0,16)}}</span>
+		</footer>
+		<!-- js -->
 		<script type="text/javascript" src="js/bmob/Bmob-2.1.0.min.js"></script>
-		<script type="text/javascript" src="js/myggj.js"></script>
-		<script>
-			showAllProblem();
-			jQuery.expr[':'].Contains = function(a, i, m) {
-				return jQuery(a).text().toUpperCase()
-					.indexOf(m[3].toUpperCase()) >= 0;
-			};
-   
-			jQuery.expr[':'].contains = function(a, i, m) {
-				return jQuery(a).text().toUpperCase()
-					.indexOf(m[3].toUpperCase()) >= 0;
-			};
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			Bmob.initialize("528ef28ba75c6243", "Pylory");
 
-			$(document).ready(function() {
-				$("#search").keyup(function() {
-					$(".listContent").css("display", "inline");
-					var key = $("#search").val();
-					if (key === null || key === "") {
-						console.log("By Pylory");
-					} else {
-						$(".listContent").css("display", "none");
-						$(".listContent:contains(" + key + ")").css("display", "inline");
+			//showAllProblem
+			var query = Bmob.Query('myggj_problem');
+			query.order("pid");
+			query.find().then(res => {
+				new Vue({
+					el: '#ggjDetail',
+					data: {
+						myProblems: res
 					}
+				})
+			}).catch(err => {
+				console.log(err)
+			})
 
-				});
-			});
+			//showAllPicCarousels
+			var query = Bmob.Query('myggj_pic_carousel');
+			query.order("pcid");
+			query.find().then(res => {
+				new Vue({
+					el: '#ggjCarouselIndicators',
+					data: {
+						myPicCarousels: res
+					}
+				})
+			}).catch(err => {
+				console.log(err)
+			})
+
+			//showDropdown
+			var query = Bmob.Query('myggj_dropdown');
+			query.order("ddid");
+			query.find().then(res => {
+				new Vue({
+					el: '#ggjNavbar',
+					data: {
+						myDropdownItems: res
+					}
+				})
+			}).catch(err => {
+				console.log(err)
+			})
+
+			//showTime
+			Bmob.timestamp().then(res => {
+				new Vue({
+					el: '#time',
+					data: {
+						Now: res
+					}
+				})
+			}).catch(err => {
+				console.log(err)
+			})
 		</script>
 	</body>
 </html>
