@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+		<title>登录后台</title>
+		<link type="text/css" rel="styleSheet" href="css/myggj.css" />
+	</head>
+	<body>
+		<input type="text" id="myUserName" />
+		<br>
+		<input type="password" id="myPassword" />
+		<br>
+		<input type="button" value="登录" onclick="loginCheck()" />
+		<input type="button" value="查询" onclick="getSessionToken()" />
+		<input type="button" value="退出" onclick="logoutCheck()" />
+		<!-- js -->
+		<script type="text/javascript" src="js/bmob/Bmob-2.1.0.min.js"></script>
+		<script src="https://cdn.bootcss.com/blueimp-md5/2.11.1/js/md5.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			// Bmob.initialize("528ef28ba75c6243", "Pylory");
+
+			function loginCheck() {
+				var myUserNameValue = $("#myUserName").val();
+				var myPasswordValue = md5(md5($("#myPassword").val()));
+				Bmob.User.login(myUserNameValue, myPasswordValue).then(res => {
+					console.log(res)
+				}).catch(err => {
+					console.log(err)
+				});
+				// var isPasswordTrue = false;
+				// var query = Bmob.Query('myggj_user');
+				// query.equalTo("username", "==", myUserNameValue);
+				// query.find().then(res => {
+				// 	if (md5(md5(myPasswordValue)) === res[0].password) {
+				// 		$("#mySubmit").attr("data-dismiss", "modal");
+				// 		$("#mySubmit").click();
+				// 	} else {
+				// 		alert("ERROR");
+				// 	}
+				// });
+			}
+
+			function getSessionToken() {
+				var current = Bmob.User.current()
+				if (current != null) {
+					console.log(current.sessionToken)
+				} else {
+					alert("未登录")
+				}
+			}
+
+			function logoutCheck() {
+				Bmob.User.logout()
+			}
+		</script>
+	</body>
+</html>
