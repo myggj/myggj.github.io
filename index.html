@@ -13,26 +13,28 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNavbar">
 			<div class="container">
 				<a class="navbar-brand" href="index.html">MyGGJ</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarContent" aria-controls="myNavbarContent"
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar"
 				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="myNavbarContent">
-					<ul class="navbar-nav mr-auto">
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="navbar-nav mr-auto" id="myNavbarContent">
 						<li class="nav-item" v-for="myNavbarItem in myNavbarItems">
 							<a class="nav-link" href="index.html" :href="myNavbarItem.url">{{myNavbarItem.name}}</a>
-						</li> -->
-						<li class="nav-item dropdown" id="myDropdownContent">
-							<a class="nav-link dropdown-toggle" id="myProjectDropdown" href="#" role="button" data-toggle="dropdown"
-							 aria-haspopup="true" aria-expanded="false">练手项目</a>
-							<div class="dropdown-menu" aria-labelledby="myProjectDropdown">
-								<a class="dropdown-item" :href="myDropdownItem.url" v-for="myDropdownItem in myDropdownItems">{{myDropdownItem.name}}</a>
-							</div>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#" data-toggle="modal" data-target="#myAboutWebsiteModal">关于本站</a>
 						</li>
 					</ul>
+					<div class="dropdown">
+						<a class="btn btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+						 aria-haspopup="true" aria-expanded="false">
+							练手项目
+						</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="myDropdownContent">
+							<a class="dropdown-item" :href="myDropdownItem.url" v-for="myDropdownItem in myDropdownItems">{{myDropdownItem.name}}</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -60,7 +62,7 @@
 		</div>
 		<div class="container">
 			<!-- 图片轮播 -->
-			<div id="myPictureCarousel" class="carousel slide" data-ride="carousel">
+<!-- 			<div id="myPictureCarousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#myPictureCarousel" :data-slide-to="myPicCarousel.pcid-1" :class="{active: myPicCarousel.pcid == 1}"
 					 v-for="myPicCarousel in myPicCarousels"></li>
@@ -78,7 +80,7 @@
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
-			</div>
+			</div> -->
 			<!-- 常见问题列表 -->
 			<div id="myGGJProblem">
 				<ul class="list-group list-group-flush">
@@ -102,10 +104,25 @@
 		<!-- js -->
 		<script type="text/javascript" src="js/Bmob-2.2.0.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<!-- <script src="js/myggj.js"></script> -->
 		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
 		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<script>
 			Bmob.initialize("528ef28ba75c6243", "Pylory");
+
+			// showNavbar
+			var query = Bmob.Query('myggj_navbar');
+			query.order("nid");
+			query.find().then(res => {
+				new Vue({
+					el: '#myNavbarContent',
+					data: {
+						myNavbarItems: res
+					}
+				})
+			}).catch(err => {
+				console.log(err)
+			})
 
 			// showDropdown
 			var query = Bmob.Query('myggj_dropdown');
@@ -115,19 +132,6 @@
 					el: '#myDropdownContent',
 					data: {
 						myDropdownItems: res
-					}
-				})
-			}).catch(err => {
-				console.log(err)
-			})
-			// showNavbar
-			var query = Bmob.Query('myggj_navbar');
-			query.order("nid");
-			query.find().then(res => {
-				new Vue({
-					el: '#myNavbarContent',
-					data: {
-						myNavbarItems: res
 					}
 				})
 			}).catch(err => {
