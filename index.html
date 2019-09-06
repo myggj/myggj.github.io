@@ -5,36 +5,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
-		<title>MyGGJ - 卧槽，我的咕咕机肿么了 - Vue重构版</title>
-		<link type="text/css" rel="styleSheet" href="css/myggj.css"/>
+		<title>MyGGJ - 卧槽，我的咕咕机肿么了 - 2.0大换血</title>
+		<link type="text/css" rel="styleSheet" href="css/myggj.css" />
 	</head>
 	<body>
 		<!-- 导航栏 -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="ggjNavbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNavbar">
 			<div class="container">
 				<a class="navbar-brand" href="index.html">MyGGJ</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbarContent" aria-controls="myNavbarContent"
+				 aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<div class="collapse navbar-collapse" id="myNavbarContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">主页</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://jq.qq.com/?_wv=1027&k=5YRGOsz">点我入群</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://www.memobird.shop/">咕咕机官网</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="http://www.memobird.cn/Memobird.html">咕咕机APP下载</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="http://w.memobird.cn/cn/w/login.aspx">网页版咕咕机</a>
-						</li>
-						<li class="nav-item dropdown">
+						<li class="nav-item" v-for="myNavbarItem in myNavbarItems">
+							<a class="nav-link" href="index.html" :href="myNavbarItem.url">{{myNavbarItem.name}}</a>
+						</li> -->
+						<li class="nav-item dropdown" id="myDropdownContent">
 							<a class="nav-link dropdown-toggle" id="myProjectDropdown" href="#" role="button" data-toggle="dropdown"
 							 aria-haspopup="true" aria-expanded="false">练手项目</a>
 							<div class="dropdown-menu" aria-labelledby="myProjectDropdown">
@@ -42,18 +30,18 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="" data-toggle="modal" data-target="#aboutWebsiteModal">关于本站</a>
+							<a class="nav-link" href="#" data-toggle="modal" data-target="#myAboutWebsiteModal">关于本站</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<!-- 关于本站模态框 -->
-		<div class="modal fade" id="aboutWebsiteModal" tabindex="-1" role="dialog">
+		<div class="modal fade" id="myAboutWebsiteModal" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="aboutWebsiteModal">关于本站</h5>
+						<h5 class="modal-title" id="myAboutWebsiteModal">关于本站</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -72,9 +60,9 @@
 		</div>
 		<div class="container">
 			<!-- 图片轮播 -->
-			<div id="ggjCarouselIndicators" class="carousel slide" data-ride="carousel">
+			<div id="myPictureCarousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-target="#ggjCarouselIndicators" :data-slide-to="myPicCarousel.pcid-1" :class="{active: myPicCarousel.pcid == 1}"
+					<li data-target="#myPictureCarousel" :data-slide-to="myPicCarousel.pcid-1" :class="{active: myPicCarousel.pcid == 1}"
 					 v-for="myPicCarousel in myPicCarousels"></li>
 				</ol>
 				<div class="carousel-inner">
@@ -82,68 +70,76 @@
 						<img class="d-block w-100" :src="myPicCarousel.picurl">
 					</div>
 				</div>
-				<a class="carousel-control-prev" href="#ggjCarouselIndicators" role="button" data-slide="prev">
+				<a class="carousel-control-prev" href="#myPictureCarousel" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
 				</a>
-				<a class="carousel-control-next" href="#ggjCarouselIndicators" role="button" data-slide="next">
+				<a class="carousel-control-next" href="#myPictureCarousel" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
-			<!-- 问题列表 -->
-			<div id="ggjDetail">
+			<!-- 常见问题列表 -->
+			<div id="myGGJProblem">
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item listContent" style="background-color:rgba(255,255,255,0);">
 						<h1 class="text-center p-md-4">常见问题</h1>
 					</li>
 					<li class="list-group-item listContent" style="background-color:rgba(255,255,255,0);" v-for="myProblem in myProblems">
 						<h4 class="mt-3">{{myProblem.pid}}、{{myProblem.question}}<span class="badge badge-pill badge-danger" v-if="myProblem.is_hot == 1">热</span></h4>
-						<p class="mt-3">{{myProblem.answer}}</p>
+						<p class="mt-3" v-html='myProblem.answer'></p>
 					</li>
 				</ul>
 			</div>
-			<!-- 疑问列表 -->
-			<h1 class="text-center p-md-4">我有疑问TODO</h1>
-			<div class="input-group">
-				<input type="text" class="form-control" value="TODO">
-			</div>
-			<button type="button" class="btn btn-primary mt-3 mb-3">提交TODO</button>
 		</div>
 		<!-- 页脚 -->
-		<footer class="footer navbar-fixed-bottom">
+		<div class="navbar-fixed-bottom">
 			<div class="dropdown-divider"></div>
-			<span id="time" class="p-3">©2019 By Pylory 当前时间{{Now.datetime.substring(0,16)}}</span>
-		</footer>
+			<div class="container">
+				<p id="time" class="p-3 text-center text-muted">©2019 By Pylory 当前时间{{Now.datetime.substring(0,16)}}</p>
+			</div>
+		</div>
 		<!-- js -->
-		<script type="text/javascript" src="js/bmob/Bmob-2.1.0.min.js"></script>
-		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script type="text/javascript" src="js/Bmob-2.2.0.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
 		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
+		<script>
 			Bmob.initialize("528ef28ba75c6243", "Pylory");
 
-			//showAllProblem
-			var query = Bmob.Query('myggj_problem');
-			query.order("pid");
+			// showDropdown
+			var query = Bmob.Query('myggj_dropdown');
+			query.order("ddid");
 			query.find().then(res => {
 				new Vue({
-					el: '#ggjDetail',
+					el: '#myDropdownContent',
 					data: {
-						myProblems: res
+						myDropdownItems: res
+					}
+				})
+			}).catch(err => {
+				console.log(err)
+			})
+			// showNavbar
+			var query = Bmob.Query('myggj_navbar');
+			query.order("nid");
+			query.find().then(res => {
+				new Vue({
+					el: '#myNavbarContent',
+					data: {
+						myNavbarItems: res
 					}
 				})
 			}).catch(err => {
 				console.log(err)
 			})
 
-			//showAllPicCarousels
+			// showPictureCarousel
 			var query = Bmob.Query('myggj_pic_carousel');
 			query.order("pcid");
 			query.find().then(res => {
 				new Vue({
-					el: '#ggjCarouselIndicators',
+					el: '#myPictureCarousel',
 					data: {
 						myPicCarousels: res
 					}
@@ -152,21 +148,21 @@
 				console.log(err)
 			})
 
-			//showDropdown
-			var query = Bmob.Query('myggj_dropdown');
-			query.order("ddid");
+			// showProblem
+			var query = Bmob.Query('myggj_problem');
+			query.order("pid");
 			query.find().then(res => {
 				new Vue({
-					el: '#ggjNavbar',
+					el: '#myGGJProblem',
 					data: {
-						myDropdownItems: res
+						myProblems: res
 					}
 				})
 			}).catch(err => {
 				console.log(err)
 			})
 
-			//showTime
+			// showTime
 			Bmob.timestamp().then(res => {
 				new Vue({
 					el: '#time',
