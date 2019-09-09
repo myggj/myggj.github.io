@@ -64,7 +64,7 @@
 				},
 				mounted() {
 					axios
-						.get('https://www.tianqiapi.com/api/?version=v1&appid=1001&appsecret=5566')
+						.get('https://www.tianqiapi.com/api/?version=v1&appid=appid&appsecret=appsecret')
 						.then(response => (
 							this.vwCity = response.data.city,
 							this.vwDate = response.data.data[0].date,
