@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
-		<title>MyGGJ - 卧槽，我的咕咕机肿么了 - 2.0大换血</title>
+		<title>MyGGJ - 卧槽，我的咕咕机肿么了</title>
 		<link type="text/css" rel="styleSheet" href="css/myggj.css" />
 	</head>
 	<body>
@@ -86,6 +86,7 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item listContent" style="background-color:rgba(255,255,255,0);">
 						<h1 class="text-center p-md-4">常见问题</h1>
+						<h2 class="text-center p-md-4">（后端炸了，紧急修复中，预计年底修复完成）</h1>
 					</li>
 					<li class="list-group-item listContent" style="background-color:rgba(255,255,255,0);" v-for="myProblem in myProblems">
 						<h4 class="mt-3">{{myProblem.pid}}、{{myProblem.question}}<span class="badge badge-pill badge-danger" v-if="myProblem.is_hot == 1">热</span></h4>
