@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap CSS -->
 		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
-		<title>MyGGJ天气 - Vue重构版</title>
+		<title>MyGGJ天气</title>
 	</head>
 	<body>
 		<div class="container">
@@ -32,7 +32,7 @@
 					</thead>
 					<tbody>
 						<tr v-for="vwDayDetail in vwDayDetails">
-							<td style="width:25%">{{ vwDayDetail.day.split("日")[0]}}日<br>{{ vwDayDetail.day.split("日")[1]}}</td>
+							<td style="width:25%">{{ vwDayDetail.day.split("日（")[0]}}日<br>（{{ vwDayDetail.day.split("日（")[1] }}</td>
 							<td>{{ vwDayDetail.wea }}</td>
 							<td>{{ vwDayDetail.tem }}</td>
 							<td>{{ vwDayDetail.tem1 }}</td>
@@ -64,7 +64,7 @@
 				},
 				mounted() {
 					axios
-						.get('https://www.tianqiapi.com/api/?version=v1&appid=appid&appsecret=appsecret')
+						.get('https://www.tianqiapi.com/api/?version=v1&appid=test&appsecret=test')
 						.then(response => (
 							this.vwCity = response.data.city,
 							this.vwDate = response.data.data[0].date,
