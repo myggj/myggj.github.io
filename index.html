@@ -1,350 +1,378 @@
 <!DOCTYPE html>
 <html lang="zh">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- Bootstrap CSS -->
-		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
-		<title>MyGGJ - 卧槽，我的咕咕机肿么了 - 3.0回归本源</title>
-		<link type="text/css" rel="styleSheet" href="css/myggj.css" />
-	</head>
-	<body>
-		<!-- 导航栏 -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNavbar">
-			<div class="container">
-				<a class="navbar-brand" href="index.html">MyGGJ</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">主页</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="https://jq.qq.com/?_wv=1027&k=5YRGOsz">点我入群</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="http://www.memobird.cn/">咕咕机官网</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="http://www.memobird.cn/Memobird.html">APP下载</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="http://w.memobird.cn/cn/w/login.aspx">网页版咕咕机</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" id="myProjectDropdown" href="#" role="button" data-toggle="dropdown"
-							 aria-haspopup="true" aria-expanded="false">小工具</a>
-							<div class="dropdown-menu" aria-labelledby="myProjectDropdown">
-								<a class="dropdown-item" href="weather.html">my天气</a>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#" data-toggle="modal" data-target="#myAboutWebsiteModal">关于本站</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+        <title>MyGGJ - 卧槽，我的咕咕机肿么了 - 3.0回归本源</title>
+        <link type="text/css" rel="styleSheet" href="css/myggj.css" />
+    </head>
+    <body>
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="myNavbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">MyGGJ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">主页</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://jq.qq.com/?_wv=1027&k=5YRGOsz">点我入群</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://www.memobird.cn/">咕咕机官网</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://www.memobird.cn/Memobird.html">APP下载</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://w.memobird.cn/cn/w/login.aspx">网页版咕咕机</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="myProjectDropdown" href="#" role="button" data-toggle="dropdown"
+                             aria-haspopup="true" aria-expanded="false">小工具</a>
+                            <div class="dropdown-menu" aria-labelledby="myProjectDropdown">
+                                <a class="dropdown-item" href="weather.html">my天气（废掉了）</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#myAboutWebsiteModal">关于本站</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-		<!-- 关于本站模态框 -->
-		<div class="modal fade" id="myAboutWebsiteModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="myAboutWebsiteModalLabel">关于本站</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<p>本站仅为个人性质的咕咕机使用问题及解决方案收录站点。</p>
-						<p>解决方案仅为个人见解，仅供参考，不代表官方。</p>
-						<p>本站对操作过程中出现的任何损坏不承担责任。</p>
-						<p>若有疑问，可在群内提出。</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-					</div>
-				</div>
-			</div>
-		</div>
+        <!-- 关于本站模态框 -->
+        <div class="modal fade" id="myAboutWebsiteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myAboutWebsiteModalLabel">关于本站</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>本站仅为民间性质的咕咕机使用问题及解决方案收录站点。</p>
+                        <p>部分内容摘自咕咕机官方APP以及memobird官方公众号。</p>
+                        <p>本站对操作过程中出现的任何损坏不承担责任。</p>
+                        <p>若有疑问，可在群内提出。</p>
+                        <p>*本站与memobird厦门盈点科技无关。</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div class="container">
-			<!-- 图片轮播 -->
-			<div id="myCarouselIndicators" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#myCarouselIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarouselIndicators" data-slide-to="1"></li>
-					<li data-target="#myCarouselIndicators" data-slide-to="2"></li>
-					<li data-target="#myCarouselIndicators" data-slide-to="3"></li>
-					<li data-target="#myCarouselIndicators" data-slide-to="4"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_816f53e5025f41dc9dda30e8f8f6f9b7~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_816f53e5025f41dc9dda30e8f8f6f9b7~mv2.webp" alt="咕咕机">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_fac02118cbd34e3da98767fd708ee188~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_fac02118cbd34e3da98767fd708ee188~mv2.webp" alt="咕咕机">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_78bec47450ce48cbad4b24ec0daecd03~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_78bec47450ce48cbad4b24ec0daecd03~mv2.webp" alt="咕咕机">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_c908798d05844da39419a037a978a8cf~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_c908798d05844da39419a037a978a8cf~mv2.webp" alt="咕咕机">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="https://static.wixstatic.com/media/612054_b56019373d5446829676054cebee7b78~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_b56019373d5446829676054cebee7b78~mv2.webp" alt="咕咕机">
-					</div>
-				</div>
-				<a class="carousel-control-prev" href="#myCarouselIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#myCarouselIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
+        <div class="container">
+            <!-- 图片轮播 -->
+            <div id="myCarouselIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarouselIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarouselIndicators" data-slide-to="1"></li>
+                    <li data-target="#myCarouselIndicators" data-slide-to="2"></li>
+                    <li data-target="#myCarouselIndicators" data-slide-to="3"></li>
+                    <li data-target="#myCarouselIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="https://static.wixstatic.com/media/612054_816f53e5025f41dc9dda30e8f8f6f9b7~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_816f53e5025f41dc9dda30e8f8f6f9b7~mv2.webp" alt="咕咕机1">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://static.wixstatic.com/media/612054_fac02118cbd34e3da98767fd708ee188~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_fac02118cbd34e3da98767fd708ee188~mv2.webp" alt="咕咕机2">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://static.wixstatic.com/media/612054_78bec47450ce48cbad4b24ec0daecd03~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_78bec47450ce48cbad4b24ec0daecd03~mv2.webp" alt="咕咕机3">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://static.wixstatic.com/media/612054_c908798d05844da39419a037a978a8cf~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_c908798d05844da39419a037a978a8cf~mv2.webp" alt="咕咕机4">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://static.wixstatic.com/media/612054_b56019373d5446829676054cebee7b78~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_85,usm_0.66_1.00_0.01/612054_b56019373d5446829676054cebee7b78~mv2.webp" alt="咕咕机5">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#myCarouselIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarouselIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
 
-			<!-- 使用指南 -->
-			<div id="myUseGuide">
-				<h1 class="text-center my-3">使用指南</h1>
-				<ul class="nav nav-tabs nav-fill" id="myUseGuideTab" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link active" id="my-question-tab" data-toggle="tab" href="#myQuestion" role="tab" aria-controls="myQuestion"
-						 aria-selected="true">常见问题</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="my-device-tab" data-toggle="tab" href="#myDevice" role="tab" aria-controls="myDevice"
-						 aria-selected="false">设备指南</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" id="my-app-tab" data-toggle="tab" href="#myApp" role="tab" aria-controls="myApp"
-						 aria-selected="false">APP指南</a>
-					</li>
-				</ul>
-				<div class="tab-content" id="myUseGuideContent">
-					<div id="myQuestion" class="tab-pane fade show active" role="tabpanel" aria-labelledby="my-question-tab">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">咕咕机怎么连手机/连WIFI/连蓝牙？</h4>
-								<p>
-									详细参考隔壁“设备指南”页面。
-								</p>
-							</li>
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">可以彩色打印吗？</h4>
-								<p>咕咕机采用热敏打印技术，不支持彩色打印。</p>
-							</li>
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">怎么打印更清晰？</h4>
-								<p>
-									1.推荐使用官方纸。<br>
-									2.安卓手机系统设置了字体，APP会跟随手机系统的字体，对打印效果有一定影响，建议使用手机默认的字体（手机设置－显示－字体）。<br>
-									3.打印图片：<br>
-									①打印文字图片，体现图片上面的文字内容：APP-首页-图文打印-图片-拍照/相册上传-滤镜，使用滤镜中的文字效果，调节好后点击右上角预览按钮，直接打印。<br>
-									②打印照片美图，可以用滤镜中的图像增强效果。
-								</p>
-							</li>
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">为什么热敏纸夹在书里或用胶带粘住容易褪色？</h4>
-								<p>
-									1.夹在书里，热敏层会和书中的油墨反应，加速褪色。<br>
-									2.用胶带粘住，热敏层会和用胶带中的黏性成分发生反应，加速褪色。<br>
-									3.建议保存纸张时，存放在阴凉处，避开高温、水、油墨、胶带等。
-								</p>
-							</li>
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">打印出来的纸张可以保存多久？</h4>
-								<p>
-									1.普通纸常温下3~4个月左右渐退。<br>
-									2.存放在避光干燥无污染的环境下可以保存更长时间。<br>
-									3.所购买的热敏纸保存时间建议咨询店铺客服。<br>
-									(我帮你们问过了 (๑•ㅂ•́)و✧，<a href="#" data-toggle="modal" data-target="#myGuguzhiModal">点击查看大图</a>)
-								</p>
-								<div class="modal fade" id="myGuguzhiModal" tabindex="-1" role="dialog">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="myGuguzhiModalLabel">纸</h5>
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-											</div>
-											<div class="modal-body">
-												<img width="100%" src="img/Guguzhi.png" alt="咨询店铺客服"/>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">为什么热敏纸夹在书里或用胶带粘住容易褪色？</h4>
-								<p>
-									1.夹在书里，热敏层会和书中的油墨反应，加速褪色。<br>
-									2.用胶带粘住，热敏层会和用胶带中的黏性成分发生反应，加速褪色。<br>
-									3.建议保存纸张时，存放在阴凉处，避开高温、水、油墨、胶带等。
-								</p>
-							</li>
-						</ul>
-					</div>
-					<div id="myDevice" class="tab-pane fade" role="tabpanel" aria-labelledby="my-device-tab">
-						<ul class="nav nav-pills nav-fill mt-3" id="myDevicePillsTab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" id="my-pills-g1g2-tab" data-toggle="pill" href="#myG1G2" role="tab" aria-controls="myG1G2"
-								 aria-selected="true">G1/G2</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="my-pills-go-tab" data-toggle="pill" href="#myGo" role="tab" aria-controls="myGo"
-								 aria-selected="false">Go</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="my-pills-gt1-tab" data-toggle="pill" href="#myGT1" role="tab" aria-controls="myGT1"
-								 aria-selected="false">GT1</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="my-pills-g4-tab" data-toggle="pill" href="#myG4" role="tab" aria-controls="myG4"
-								 aria-selected="false">G4</a>
-							</li>
-						</ul>
-						<div class="tab-content" id="pills-tabContent">
-							<div id="myG1G2" class="tab-pane fade show active" role="tabpanel" aria-labelledby="my-pills-g1g2-tab">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">怎么配置WIFI/云端模式？</h4>
-										<p>
-											1.使用官方充电器（或5V2A的充电器）接通电源；<br>
-											2.手机连接2.4G的可正常上网的WIFI（普通家用路由器就可以）；<br>
-											3.双击咕咕机按键，打开APP扫描打印出的二维码；<br>
-											4.然后干什么来着的？//TODO
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">G2怎么配置本地模式？</h4>
-										<p>
-											1.拨动咕咕机G2底部的按钮到本地模式。<br>
-											2.咕咕机亮蓝灯，设备自动打印本地模式的操作纸条。<br>
-											3.依照纸条上的步骤操作即可。
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">打印断断续续绿灯闪还滴滴响是怎么回事？</h4>
-										<p>
-											电流/电压不足导致咕咕机无法正常运转，请使用官方充电器（或5V2A的充电器）连接电源。
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">TODO</h4>
-										<p>
-											TODO
-										</p>
-									</li>
-								</ul>
-							</div>
-							<div id="myGo" class="tab-pane fade" role="tabpanel" aria-labelledby="my-pills-go-tab">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">怎么连接蓝牙？</h4>
-										<p>
-											1.打开手机蓝牙（仅打开蓝牙开关即可，无需其他操作）。<br>
-											2.长按咕咕机开机，双击按键设备打印连接纸条。<br>
-											3.打开咕咕机APP扫描纸条上二维码进行绑定。<br>
-											4.等待蓝牙自动连接成功后即可使用。
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">TODO</h4>
-										<p>
-											TODO
-										</p>
-									</li>
-								</ul>
-							</div>
-							<div id="myGT1" class="tab-pane fade" role="tabpanel" aria-labelledby="my-pills-gt1-tab">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">怎么连接蓝牙？</h4>
-										<p>
-											1.打开手机蓝牙（仅打开蓝牙开关即可，无需其他操作）。<br>
-											2.长按咕咕机开机，双击按键设备打印连接纸条。<br>
-											3.打开咕咕机APP扫描纸条上二维码进行绑定。<br>
-											4.等待蓝牙自动连接成功后即可使用。
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">TODO</h4>
-										<p>
-											TODO
-										</p>
-									</li>
-								</ul>
-							</div>
-							<div id="myG4" class="tab-pane fade" role="tabpanel" aria-labelledby="my-pills-g4-tab">
-								<ul class="list-group list-group-flush">
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">怎么连接蓝牙？</h4>
-										<p>
-											1.打开手机蓝牙（仅打开蓝牙开关即可，无需其他操作）。<br>
-											2.长按咕咕机开机，双击按键设备打印连接纸条。<br>
-											3.打开咕咕机APP扫描纸条上二维码进行绑定。<br>
-											4.等待蓝牙自动连接成功后即可使用。
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">咕咕机G4怎么换纸？</h4>
-										<p>
-											1.打开上盖，取出旧纸卷。
-											2.将新纸卷按箭头所示方向放入纸仓，把纸张拉至出纸口。
-											3.合上机身，即可继续打印。
-											【注意】
-											①打印时打印头最高温度70‘C，请小心勿触
-											②撕纸刀锋利，请小心勿触
-											③确保纸张安装方向正确，若装反只打印空白纸条
-										</p>
-									</li>
-									<li class="list-group-item listContent transparent">
-										<h4 class="my-3">TODO</h4>
-										<p>
-											TODO
-										</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div id="myApp" class="tab-pane fade" role="tabpanel" aria-labelledby="my-app-tab">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">怎么打印照片？</h4>
-								<p>
-									APP-首页-图文打印-选择相册或拍照上传。给图片添加滤镜效果后，打印更加清晰。
-								</p>
-							</li>
-							<li class="list-group-item listContent transparent">
-								<h4 class="my-3">TODO</h4>
-								<p>
-									TODO
-								</p>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+            <!-- 使用指南 -->
+            <div id="myUseGuide">
+                <h1 class="text-center my-3">使用指南</h1>
+                <ul class="nav nav-tabs nav-fill" id="myUseGuideTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="my-question-tab" data-toggle="tab" href="#myQuestion" role="tab" aria-controls="myQuestion"
+                         aria-selected="true">常见问题</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="my-device-tab" data-toggle="tab" href="#myDevice" role="tab" aria-controls="myDevice"
+                         aria-selected="false">设备指南</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="my-app-tab" data-toggle="tab" href="#myApp" role="tab" aria-controls="myApp"
+                         aria-selected="false">APP指南</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myUseGuideContent">
+                    <div id="myQuestion" class="tab-pane fade show active" role="tabpanel" aria-labelledby="my-question-tab">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">咕咕机怎么连手机/连WIFI/连蓝牙？</h4>
+                                <p>
+                                    详细参考隔壁“设备指南”页面。
+                                </p>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">可以彩色打印吗？</h4>
+                                <p>咕咕机采用热敏打印技术，不支持彩色打印。</p>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">怎么打印更清晰？</h4>
+                                <p>
+                                    1.推荐使用官方纸；<br>
+                                    2.安卓手机系统设置了字体，APP会跟随手机系统的字体，对打印效果有一定影响，建议使用手机默认的字体（手机设置－显示－字体）；<br>
+                                    3.打印图片：<br>
+                                    ①打印文字图片，体现图片上面的文字内容：APP-首页-图文打印-图片-拍照/相册上传-滤镜，使用滤镜中的文字效果，调节好后点击右上角预览按钮，直接打印；<br>
+                                    ②打印照片美图，可以用滤镜中的图像增强效果。
+                                </p>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">为什么热敏纸夹在书里或用胶带粘住容易褪色？</h4>
+                                <p>
+                                    1.夹在书里，热敏层会和书中的油墨反应，加速褪色；<br>
+                                    2.用胶带粘住，热敏层会和用胶带中的黏性成分发生反应，加速褪色；<br>
+                                    3.建议保存纸张时，存放在阴凉处，避开高温、水、油墨、胶带等。
+                                </p>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">打印出来的纸张可以保存多久？</h4>
+                                <p>
+                                    1.普通纸常温下3~4个月左右渐退；<br>
+                                    2.存放在避光干燥无污染的环境下可以保存更长时间；<br>
+                                    3.所购买的热敏纸保存时间建议咨询店铺客服；<br>
+                                    (官方纸我帮你们问过了 (๑•ㅂ•́)و✧，<a href="#" data-toggle="modal" data-target="#myGuguzhiModal">点击查看大图</a>)
+                                </p>
+                                <div class="modal fade" id="myGuguzhiModal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="myGuguzhiModalLabel">纸</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img width="100%" src="img/Guguzhi.png" alt="咨询店铺客服"/>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">为什么打印空白？</h4>
+                                <p>
+                                    1.确认放入的纸是不是热敏纸；<br>
+                                    2.确认纸是否装反，若装反重装即可；<br>
+                                    3.若上述均没有问题，还请咨询购买客服
+                                </p>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">为什么不干胶打印效果特别淡？</h4>
+                                <p>
+                                    1.不干胶是不含双酚A的耗材，打印效果会淡些；<br>
+                                    2.不干胶是双层的原因；<br>
+                                    3.打印头加热到70度就会过热保护，而不干胶是80度成像。
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="myDevice" class="tab-pane fade" role="tabpanel" aria-labelledby="my-device-tab">
+                        <ul class="nav nav-pills nav-fill mt-3" id="myDevicePillsTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="my-pills-g1g2-tab" data-toggle="pill" href="#myG1G2" role="tab" aria-controls="myG1G2"
+                                 aria-selected="true">G1/G2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="my-pills-go-tab" data-toggle="pill" href="#myGo" role="tab" aria-controls="myGo"
+                                 aria-selected="false">Go</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="my-pills-gt1-tab" data-toggle="pill" href="#myGT1" role="tab" aria-controls="myGT1"
+                                 aria-selected="false">GT1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="my-pills-g4-tab" data-toggle="pill" href="#myG4" role="tab" aria-controls="myG4"
+                                 aria-selected="false">G4</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div id="myG1G2" class="tab-pane fade show active" role="tabpanel" aria-labelledby="my-pills-g1g2-tab">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">怎么配置WIFI/云端模式？</h4>
+                                        <p>
+                                            1.使用官方充电器（或5V2A的充电器）接通电源；<br>
+                                            2.手机连接2.4G的可正常上网的WIFI（普通家用路由器就可以）；<br>
+                                            3.长按咕咕机按键6秒，咕咕机打印出开始WIFI智能配置的纸条；<br>
+                                            4.双击咕咕机按键，打开APP扫描打印出的二维码开始配置；<br>
+                                            5.配置过程中可能会出现要求WIFI开启的权限，请点击确认；<br>
+                                            6.配置过程中可能会提示去设置中连接"memobird-xxxx"的WIFI，手机可能会提示此WIFI不可上网，但是还是请连上这个WIFI；<br>
+                                            7.返回咕咕机配置界面，输入当前连接的WIFI密码，配置完成后就可以使用了。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">安卓手机配置时连接上自己的WIFI之后，提示去设置中连接memobird-xxxx的WIFI，但是点击去设置为什么找不到对应的WIFI？</h4>
+                                        <p>
+                                            1.配置的第一步需要长按咕咕机6秒，咕咕机打印出开始WIFI智能配置的纸条，才能进行下一步操作。；<br>
+                                            2.找不到对应的WIFI，是配置的第一步没有长按设备6秒，咕咕机没有进入配置状态。；<br>
+                                            3.确定是以上问题后，重新配置。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">G2怎么配置本地模式？（仅限G2）</h4>
+                                        <p>
+                                            1.拨动咕咕机G2底部的按钮到本地模式；<br>
+                                            2.咕咕机亮蓝灯，设备自动打印本地模式的操作纸条；<br>
+                                            3.依照纸条上的步骤操作即可。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">打印断断续续绿灯闪还滴滴响是怎么回事？</h4>
+                                        <p>
+                                            可能是功率不足导致咕咕机无法正常运转，请使用官方充电器（或5V2A的充电器）连接电源。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">咕咕机提示网络不可用怎么办？</h4>
+                                        <p>
+                                            1.可能是云端服务器维护，等待维护完成后即可正常使用；<br>
+                                            2.咕咕机不支持校园认证WIFI、认证WIFI-CMCC、5G WIFI（802.11ac）网络配置，需要更换网络环境；<br>
+                                            注意：5G WIFI是双频的，可以使用2.4G WIFI进行网络配置。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">TODO</h4>
+                                        <p>
+                                            TODO
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="myGo" class="tab-pane fade" role="tabpanel" aria-labelledby="my-pills-go-tab">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">怎么连接蓝牙？</h4>
+                                        <p>
+                                            1.打开手机蓝牙（仅打开蓝牙开关即可，无需其他操作）；<br>
+                                            2.长按咕咕机开机，双击按键设备打印连接纸条；<br>
+                                            3.打开咕咕机APP扫描纸条上二维码进行绑定；<br>
+                                            4.等待蓝牙自动连接成功后即可使用。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">TODO</h4>
+                                        <p>
+                                            TODO
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="myGT1" class="tab-pane fade" role="tabpanel" aria-labelledby="my-pills-gt1-tab">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">怎么连接蓝牙？</h4>
+                                        <p>
+                                            1.打开手机蓝牙（仅打开蓝牙开关即可，无需其他操作）；<br>
+                                            2.长按咕咕机开机，双击按键设备打印连接纸条；<br>
+                                            3.打开咕咕机APP扫描纸条上二维码进行绑定；<br>
+                                            4.等待蓝牙自动连接成功后即可使用。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">TODO</h4>
+                                        <p>
+                                            TODO
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="myG4" class="tab-pane fade" role="tabpanel" aria-labelledby="my-pills-g4-tab">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">怎么连接蓝牙？</h4>
+                                        <p>
+                                            1.打开手机蓝牙（仅打开蓝牙开关即可，无需其他操作）；<br>
+                                            2.长按咕咕机开机，双击按键设备打印连接纸条；<br>
+                                            3.打开咕咕机APP扫描纸条上二维码进行绑定；<br>
+                                            4.等待蓝牙自动连接成功后即可使用。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">咕咕机G4怎么换纸？</h4>
+                                        <p>
+                                            1.打开上盖，取出旧纸卷；<br>
+                                            2.将新纸卷按箭头所示方向放入纸仓，把纸张拉至出纸口；<br>
+                                            3.合上机身，即可继续打印；<br>
+                                            【注意】<br>
+                                            ①打印时打印头最高温度70度，请小心勿触；<br>
+                                            ②撕纸刀锋利，请小心勿触；<br>
+                                            ③确保纸张安装方向正确，若装反只打印空白纸条。
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item listContent transparent">
+                                        <h4 class="my-3">TODO</h4>
+                                        <p>
+                                            TODO
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="myApp" class="tab-pane fade" role="tabpanel" aria-labelledby="my-app-tab">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">怎么打印照片？</h4>
+                                <p>
+                                    APP-首页-图文打印-选择相册或拍照上传。给图片添加滤镜效果后，打印更加清晰。
+                                </p>
+                            </li>
+                            <li class="list-group-item listContent transparent">
+                                <h4 class="my-3">TODO</h4>
+                                <p>
+                                    TODO
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<!-- 页脚 -->
-		<div class="foot">
-			<hr>
-			<p id="time" class="footer">©2019 By Pylory <a href="weather.html" id="myWeather">いい天気ですね</a></p>
-		</div>
-		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/myggj.js"></script>
-	</body>
+        <!-- 页脚 -->
+        <div class="foot">
+            <hr>
+            <p id="time" class="footer">©2019 By Pylory <a href="weather.html" id="myWeather">いい天気ですね</a></p>
+        </div>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/myggj.js"></script>
+    </body>
 </html>
