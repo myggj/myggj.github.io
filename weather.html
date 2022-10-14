@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Bootstrap CSS -->
-		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/twitter-bootstrap/5.2.2/css/bootstrap.css" rel="stylesheet">
 		<title>MyGGJ天气</title>
 	</head>
 	<body>
@@ -14,38 +14,39 @@
 				<p>城市：{{vwCity}}</p>
 				<p>日期：{{ vwDate }}</p>
 				<p>天气：{{ vwWea }}</p>
-				<p>当前气温：{{ vwTem }}</p>
+				<p>日间气温：{{ vwTemDay }}℃</p>
+				<p>夜间气温：{{ vwTemNight }}℃</p>
 				<p>风向：{{ vwWin }}</p>
-				<p>最高气温：{{ vwTemMax }}</p>
-				<p>最低气温：{{ vwTemMin }}</p>
-				<p>温馨提醒：{{ vwAirTips }}</p>
+				<p>风力：{{ vwWinSpeed }}</p>
 				<h2>未来7天天气预报</h2>
 				<table class="table" style="text-align: center">
 					<thead class="thead-light">
 						<tr>
 							<th>日期</th>
 							<th>天气</th>
-							<th>当前温度</th>
 							<th>最高气温</th>
 							<th>最低气温</th>
+							<th>风向</th>
+							<th>风力</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr v-for="vwDayDetail in vwDayDetails">
-							<td style="width:25%">{{ vwDayDetail.day.split("日（")[0]}}日<br>（{{ vwDayDetail.day.split("日（")[1] }}</td>
+							<td>{{ vwDayDetail.date }}</td>
 							<td>{{ vwDayDetail.wea }}</td>
-							<td>{{ vwDayDetail.tem }}</td>
-							<td>{{ vwDayDetail.tem1 }}</td>
-							<td>{{ vwDayDetail.tem2 }}</td>
+							<td>{{ vwDayDetail.tem_day }}℃</td>
+							<td>{{ vwDayDetail.tem_night }}℃</td>
+							<td>{{ vwDayDetail.win }}</td>
+							<td>{{ vwDayDetail.win_speed }}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
-		<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.slim.min.js"></script>
-		<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue/2.7.10/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/axios/1.1.2/axios.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.6.1/jquery.slim.min.js"></script>
+		<script src="https://cdn.bootcss.com/twitter-bootstrap/5.2.2/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			new Vue({
 				el: '#app',
@@ -54,26 +55,24 @@
 						vwCity: null,
 						vwDate: null,
 						vwWea: null,
-						vwTem: null,
+						vwTemDay: null,
+						vwTemNight: null,
 						vwWin: null,
-						vwTemMax: null,
-						vwTemMin: null,
-						vwAirTips: null,
+						vwWinSpeed: null,
 						vwDayDetails: null
 					}
 				},
 				mounted() {
 					axios
-						.get('https://www.tianqiapi.com/api/?version=v1&appid=test&appsecret=test')
+						.get('https://www.yiketianqi.com/free/week?unescape=1&appid=28139492&appsecret=J9olCIKp')
 						.then(response => (
 							this.vwCity = response.data.city,
 							this.vwDate = response.data.data[0].date,
 							this.vwWea = response.data.data[0].wea,
-							this.vwTem = response.data.data[0].tem,
-							this.vwWin = response.data.data[0].win[0],
-							this.vwTemMax = response.data.data[0].tem1,
-							this.vwTemMin = response.data.data[0].tem2,
-							this.vwAirTips = response.data.data[0].air_tips,
+							this.vwTemDay = response.data.data[0].tem_day,
+							this.vwTemNight = response.data.data[0].tem_night,
+							this.vwWin = response.data.data[0].win,
+							this.vwWinSpeed = response.data.data[0].win_speed,
 							this.vwDayDetails = response.data.data
 						))
 						.catch(function(error) { // 请求失败处理
